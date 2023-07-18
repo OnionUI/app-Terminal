@@ -324,10 +324,11 @@ int handle_keyboard_event(SDL_Event* event) {
 		} else if(event->key.keysym.sym == KEY_RETURN) {
 			simulate_key(SDLK_RETURN, STATE_TYPED);
 		} else if(event->key.keysym.sym == KEY_TOGGLE) {
+			if(!(selected_j == 3 && selected_i == 0)){
 			toggled[selected_j][selected_i] = 1 - toggled[selected_j][selected_i];
 			if(toggled[selected_j][selected_i]) simulate_key(keys[shifted][selected_j][selected_i], STATE_DOWN);
 			else simulate_key(keys[shifted][selected_j][selected_i], STATE_UP);
-			if(selected_j == 4 && (selected_i == 0 || selected_i == 11)) shifted = toggled[selected_j][selected_i];
+			if(selected_j == 4 && (selected_i == 0 || selected_i == 11)) shifted = toggled[selected_j][selected_i];}
 		} else if(event->key.keysym.sym == KEY_ENTER) {
 			int key = keys[shifted][selected_j][selected_i];
 			if(mod_state & KMOD_CTRL) {
