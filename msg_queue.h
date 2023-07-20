@@ -5,13 +5,17 @@
 #define QUEUE_ID 1
 
 typedef struct {
-	long type;
-	long data;
+    long type;
+    long data;
 } message_t;
 
 typedef int queue_t;
 
-enum { MSG_CLIENT=1, MSG_SERVER, MSG_REQUEST_SHUTDOWN, MSG_SHUTDOWN, MSG_REQUEST_INIT };
+enum { MSG_CLIENT = 1,
+       MSG_SERVER,
+       MSG_REQUEST_SHUTDOWN,
+       MSG_SHUTDOWN,
+       MSG_REQUEST_INIT };
 
 queue_t queue_create();
 queue_t queue_open();
